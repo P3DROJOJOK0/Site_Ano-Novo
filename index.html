@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Feliz Ano Novo 🎆</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styler.css">
+</head>
+<body>
+  <div id="prog" aria-hidden="true"></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+  <nav class="menu">
+    <a href="#inicio">Início</a><a href="#champanhe">Brinde</a><a href="#cor">Cor</a><a href="#mundo">Mundo</a><a href="#palavra">Palavra</a><a href="#quiz-sec">Quiz</a><a href="#sorte">Sorte</a><a href="#virada">Checklist</a><a href="#metas">Metas</a><a href="#carta">Carta</a>
+  </nav>
+
+  <header id="inicio" class="hero">
+    <p class="mini">✦ Réveillon ✦</p>
+    <h1 class="ano" id="ano">2027</h1>
+    <h2 class="frase">Feliz Ano Novo!</h2>
+    <p class="sub">Um ano inteiro de páginas em branco esperando por você.</p>
+
+    <div class="relogio" aria-live="off">
+      <div><b id="d">00</b><small>dias</small></div><span>:</span>
+      <div><b id="h">00</b><small>horas</small></div><span>:</span>
+      <div><b id="m">00</b><small>min</small></div><span>:</span>
+      <div><b id="s">00</b><small>seg</small></div>
+    </div>
+    <div class="acoes"><button id="btnConfete" class="btn">🎉 Soltar confete</button><button id="btnSim" class="btn ghost">⏱ Simular a virada</button></div>
+  </header>
+
+  <div class="faixa" aria-hidden="true"><div class="trilho" id="trilho"></div></div>
+
+  <section id="champanhe" class="bloco">
+    <h2>Brinde da virada 🥂</h2>
+    <div class="brinde" aria-hidden="true">
+      <svg viewBox="0 0 260 200" class="taças">
+        <g class="t1"><path d="M40 20 h46 l-4 60 q-19 18 -38 0 z" fill="rgba(255,230,150,.35)" stroke="#ffd76a" stroke-width="3"/>
+          <path d="M45 40 h36 l-2 38 q-16 12 -32 0z" fill="#ffd76a" opacity=".75"/>
+          <path d="M63 90 v60 M40 152 h46" stroke="#ffd76a" stroke-width="4" stroke-linecap="round"/></g>
+        <g class="t2"><path d="M174 20 h46 l-4 60 q-19 18 -38 0 z" fill="rgba(255,230,150,.35)" stroke="#ffd76a" stroke-width="3"/>
+          <path d="M179 40 h36 l-2 38 q-16 12 -32 0z" fill="#ffd76a" opacity=".75"/>
+          <path d="M197 90 v60 M174 152 h46" stroke="#ffd76a" stroke-width="4" stroke-linecap="round"/></g>
+      </svg>
+      <i class="bolha" style="--x:30%;--d:0s"></i><i class="bolha" style="--x:48%;--d:.6s"></i><i class="bolha" style="--x:66%;--d:1.2s"></i>
+    </div>
+    <p id="deseja" class="deseja">Abra o champanhe e sorteie uma mensagem para a virada.</p>
+    <button id="btnAbrir" class="btn">🍾 Abrir champanhe</button>
+  </section>
+
+  <section id="cor" class="bloco">
+    <h2>Que cor você vai vestir? 👗</h2>
+    <p class="sub">Escolha a cor da roupa e veja o que você quer ter em <span class="anoTxt">2027</span>.</p>
+    <div id="paleta" class="paleta" role="radiogroup" aria-label="Cor da roupa"></div>
+    <div id="resCor" class="resCor" aria-live="polite"></div>
+  </section>
+
+  <section id="mundo" class="bloco">
+    <h2>Réveillon pelo mundo 🌍</h2>
+    <p class="sub">Cada lugar celebra a virada do seu jeito. Olha só que curioso:</p>
+    <div id="cartas" class="cartas"></div>
+  </section>
+
+  <section id="palavra" class="bloco">
+    <h2>Minha palavra do ano 🔑</h2>
+    <p class="sub">Escolha uma única palavra para guiar o seu <span class="anoTxt">2027</span>.</p>
+    <form id="formPalavra" class="formMeta">
+      <input id="palavraIn" type="text" maxlength="18" placeholder="Ex.: coragem" aria-label="Palavra do ano" required>
+      <button class="btn" type="submit">Revelar ✨</button>
+    </form>
+    <div class="sugestoes" id="sugestoes"></div>
+    <div id="palavraOut" class="palavraOut" aria-live="polite"></div>
+  </section>
+
+  <section id="quiz-sec" class="bloco">
+    <h2>Qual é o seu estilo de virada? 🎭</h2>
+    <div id="quiz" class="quiz"></div>
+  </section>
+
+  <section id="sorte" class="bloco">
+    <h2>Biscoito da sorte 🥠</h2>
+    <p class="sub">Quebre o biscoito e descubra a previsão para o seu <span class="anoTxt">2027</span>.</p>
+    <div id="biscoito" class="biscoito" aria-hidden="true">🥠</div>
+    <p id="sorteTxt" class="deseja">Clique no botão para quebrar o biscoito.</p>
+    <button id="btnSorte" class="btn">Quebrar biscoito</button>
+  </section>
+
+  <section id="virada" class="bloco">
+    <h2>Checklist da virada ✅</h2>
+    <p class="sub">Marque o que já está pronto para a meia-noite.</p>
+    <div class="progresso" aria-hidden="true"><i id="barra"></i></div>
+    <p id="progTxt" class="sub">0 de 8 prontos</p>
+    <ul id="check" class="lista"></ul>
+  </section>
+
+  <section id="metas" class="bloco">
+    <h2>Minhas metas para <span class="anoTxt">2027</span> ✍️</h2>
+    <form id="formMeta" class="formMeta">
+      <input id="meta" type="text" maxlength="60" placeholder="Ex.: viajar para a praia" aria-label="Nova meta" required>
+      <button class="btn" type="submit">Adicionar</button>
+    </form>
+    <ul id="lista" class="lista"></ul>
+    <p id="vazio" class="sub">Nenhuma meta ainda. Que tal começar com uma? ✨</p>
+  </section>
+
+  <section id="carta" class="bloco">
+    <h2>Carta para o futuro 💌</h2>
+    <p class="sub">Escreva algo para você mesmo(a) reler no fim de <span class="anoTxt">2027</span>. Ela fica guardada neste navegador.</p>
+    <textarea id="cartaTxt" class="area" rows="5" maxlength="600" placeholder="Querido(a) eu do futuro..." aria-label="Carta para o futuro"></textarea>
+    <div class="acoes"><button id="btnCarta" class="btn">Guardar carta 💌</button><button id="btnApagar" class="btn ghost">Apagar carta</button></div>
+    <div id="cartaSalva" class="resCor"></div>
+  </section>
+
+  <div id="celebra" class="celebra" hidden>
+    <button id="fechaCel" class="flutua" style="top:16px;right:16px;bottom:auto" aria-label="Fechar">✕</button>
+    <div id="celNum" class="celNum"></div>
+    <p id="celTxt" class="celTxt"></p>
+  </div>
+
+  <button id="btnMusica" class="flutua dir" aria-pressed="false" title="Música da virada">🎵 Música</button>
+  <button id="btnTopo" class="flutua esq" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
+
+  <footer>Feito com ✨ e muitos fogos • Que venha <span class="anoTxt">2027</span>!</footer>
+  <script src="./script.js"></script>
+</body>
+</html>
